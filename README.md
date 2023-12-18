@@ -1,57 +1,43 @@
-# ETL-pipeline-creation-with-Glue
+### This project repository has been developed as part of the requirements for the Big Data Analytics course within the Master of Science in Business Analytics program at the Carlson School of Management, University of Minnesota.
 
-This project repository is created in partial fulfillment of the requirements for the Big Data Analytics course offered by the Master of Science in Business Analytics program at the Carlson School of Management, University of Minnesota.
+### Introduction to ETL and AWS Glue
+Automation plays a pivotal role in constructing end-to-end machine learning products, and at the forefront of this process is data preparation through Extract, Transform, Load (ETL) pipelines. ETL is fundamental for Data Analytics and Machine Learning workflows, as it cleanses and organizes data, meeting specific business intelligence requirements and enhancing overall operations.
 
-# Introduction to ETL and AWS Glue
+### AWS Glue, a serverless data integration service, simplifies the discovery, preparation, movement, and integration of data from diverse sources for analytics, machine learning, and application development. With the ability to connect to over 70 data sources, manage data in a centralized catalog, and create, run, and monitor ETL pipelines, AWS Glue provides a powerful solution for loading data into data lakes. This project showcases the utilization of Amazon's customer reviews data in conjunction with AWS Redshift, demonstrating the capabilities of AWS Glue.
 
-Automation is a key component in synthesizing end-to-end machine learning products. Data preparation is the first and the most vital step in analytics to obtain quality results. Data Analytics and Machine Learning work-streams rely on ETL for their basis. ETL cleanses and organizes data using a set of business rules to meet particular business intelligence requirements while enhancing back-end operations and end-user experience. 
- 
-AWS Glue is a serverless data integration service that makes it easier to discover, prepare, move, and integrate data from multiple sources for analytics, machine learning, and application development. Users can discover and connect to over 70 diverse data sources, manage data in a centralized data catalog, and visually create, run, and monitor ETL pipelines to load data into data lakes. In this project, we utilize Amazon's customer reviews data in tandem with AWS Redshift to demonstrate the use of AWS Glue.
- 
-## Dataset Description
+### Dataset Overview
+Amazon Customer Reviews, also known as Product Reviews, is an iconic product of Amazon, with millions of customers contributing reviews since 1995. The dataset contains customer review text and associated metadata, encompassing reviews from the Amazon.com marketplace between 1995 and 2015. It serves as a valuable resource for studying customer opinions, evaluating experiences, and understanding product perceptions at scale.
 
-Amazon Customer Reviews (a.k.a. Product Reviews) is one of Amazon’s iconic products. In a period of over two decades since the first review in 1995, millions of Amazon customers have contributed over a hundred million reviews to express opinions and describe their experiences regarding products on the Amazon.com website. 
+### The dataset is available in two formats:
 
-The dataset contains the customer review text with accompanying metadata, consisting of two major components:
+Tab-separated values (TSV) - Amazon Reviews TSV
 
-1. A collection of reviews written in the Amazon.com marketplace and associated metadata from 1995 until 2015. This is intended to facilitate study into the properties (and the evolution) of customer reviews potentially including how people evaluate and express their experiences with respect to products at scale. (130M+ customer reviews)
-2. A collection of reviews about products in multiple languages from different Amazon marketplaces, intended to facilitate analysis of customers’ perception of the same products and wider consumer preferences across languages and countries. (200K+ customer reviews in 5 countries)
+Parquet - Amazon Reviews Parquet
 
-The dataset is currently available in two file formats.
+This project employs a small sample from the parquet dataset to illustrate the ETL pipeline orchestration.
 
-1. Tab separated value (TSV), a text format - s3://amazon-reviews-pds/tsv/
-2. Parquet, an optimized columnar binary format - s3://amazon-reviews-pds/parquet/
+### Implementation Approach
+Store a sample dataset of customer reviews in Amazon Simple Storage Service (Amazon S3).
+Utilize an AWS Glue crawler to create an AWS data catalog.
+Implement a Glue job to load data into Redshift.
+Employ AWS Lambda functions and Amazon Comprehend to analyze sentiment and entities in the reviews.
+For detailed replication steps, follow the instructions in the provided .md filenames.
 
-In this implementation, we a small sample of the parquet dataset to orchestrate the pipeline.
+### Tools and Technologies
+Amazon S3
 
-Link: https://s3.console.aws.amazon.com/s3/buckets/amazon-reviews-pds?region=us-east-1&tab=objects
+AWS Glue
 
-## Approach
+Amazon Redshift
 
-1. Store a sample dataset of customer reviews in Amazon Simple Storage Service (Amazon S3).
-2. Use an AWS Glue crawler to create an AWS data catalog.
-3. Use a Glue job to load data in Redshift
-4. Use AWS Lambda functions and Amazon Comprehend to analyze the sentiment and entities in the reviews.
+AWS VPC
 
-To replicate, follow the steps in order mentioned in .md filenames.
+AWS Lambda
 
-## Tools and technologies used
+Amazon Comprehend
 
-1. Amazon S3
-2. AWS Glue
-3. Amazon Redshift
-4. AWS VPC
-5. AWS Lambda
-6. Amazon Comprehend
-
-**AWS Architecture**
+AWS Architecture Overview
 
 ![plot](Architecture.png)
 
-**Flyer, PPT and Project Video Link**
-
-[Flyer Link](Images/Flyer.pdf)
-
-[PPT Link](https://docs.google.com/presentation/d/1iY0Q9V4hJqRbCnPJgCE8HwLcDXeXjKx8/edit?usp=sharing&ouid=112117916252631522217&rtpof=true&sd=true)
-
-[Video Link](https://drive.google.com/drive/folders/15BsFyoAuZS77zKKbfkOz3hyFjv7asbkg?usp=share_link)
+This project leverages the aforementioned tools and technologies to create an efficient ETL pipeline, showcasing the seamless integration of AWS Glue into the broader AWS ecosystem.
