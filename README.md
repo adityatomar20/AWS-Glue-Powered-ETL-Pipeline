@@ -46,7 +46,7 @@ To replicate, follow the steps in order mentioned in .md filenames.
 
 **AWS Architecture**
 
-![plot].Architecture.png
+![plot](Architecture.png)
 
 **Flyer, PPT and Project Video Link**
 
